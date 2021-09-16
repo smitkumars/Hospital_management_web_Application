@@ -1,0 +1,33 @@
+{% extends 'clinic_app/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Patient Details</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <br />
+    
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-7 col-xs-7 col-sm-7">
+            <ul class="list-group">
+
+                <li class="list-group-item ">
+                    <p>{{ detail1.first_name }} {{detail1.last_name}}</p>
+                    <p>{{detail1.email}}</p>
+                    <p>{{ detail1.phone}}</p>
+                    <p>{{detail1.address}}</p>
+                    <p>{{ detail1.description}}</p>
+                    <p>------------------------</p>
+                    <p>{{detail1.createdAt}}</p>
+                </li>
+            </ul>
+            <br>
+        </div>
+       
+</div>
+{% endblock %}
