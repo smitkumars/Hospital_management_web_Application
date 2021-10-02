@@ -1,6 +1,7 @@
-{% extends 'clinic_app/base.html' %}
+{% extends 'auth/home.html' %}
 {% block content %}
-<div class="container-fluid">
+<div class="container">
+   
     <div class="row">
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
         <div class="col-md-10 col-xs-10 col-sm-10">
@@ -8,53 +9,63 @@
         </div>
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
     </div>
+    
     <div class="row">
         <div class="col-md-10 col-xs-10 col-sm-10"></div>
         <div class="col-md-2 col-xs-1 col-sm-1">
             <br />
             <a href="{% url 'create' %}">
-                <button type="button" class="btn btn-success">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
+                <h4>
+                    <a href="{% url 'create' %}" class="badge badge-success">Add New</a>
+                </h4>
             </a>
         </div>
     </div>
     <br />
+   
     {% for contact in contact_list %}
-    <div class="row">
+    <div class="row justify-content-md-center" style="background-color: wheat;">
+        
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
         <div class="col-md-7 col-xs-7 col-sm-7">
             <ul class="list-group">
 
                 <li class="list-group-item ">
-                    <a style="font-size: medium; color: rgb(19, 17, 17); " href="{% url 'detail' contact.pk %}"> <b> {{ contact.first_name }} {{contact.last_name}}</b> </a> <span class="badge"></span>
+                    <a style="font-size: medium; color: rgb(19, 17, 17); " href="{% url 'detail' contact.pk %}"> <b> {{ contact.first_name }} {{contact.last_name}} </b> </a> <span class="badge"></span>
+                    <p align="right">{{contact.createdAt}}</p>
                 </li>
             </ul>
             <br>
         </div>
         <div class="col-md-1 col-xs-1 col-sm-1">
-            <a href="{% url 'detail' contact.pk %}">
-                <button type="button" class="btn btn-info">
-                    <span class="glyphicon glyphicon-open"></span>
-                </button>
-            </a>
+            <div class="col-md-7 col-xs-7 col-sm-7">
+                <h4>
+                <a href="{% url 'detail' contact.pk %}" class="badge badge-dark">Info</a>
+            </h4>
+            </div>
         </div>
-        <div class="col-md-1">
-            <a href="{% url 'edit' contact.pk %}">
-                <button type="button" class="btn btn-info">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                </button>
-            </a>
+        <div class="col-md-1 col-xs-1 col-sm-1">
+            <div class="col-md-7 col-xs-7 col-sm-7">
+                <h4>
+                <a href="{% url 'edit' contact.pk %}" class="badge badge-primary ">Edit</a>
+            </h4>
+             </div>
+
         </div>
-        <div class="col-md-1">
-            <a href="{% url 'delete' contact.pk %}">
-                <button type="button" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-trash"></span>
-                </button>
-            </a>
+        <div class="col-md-1 col-xs-1 col-sm-1">
+            <div class="col-md-7 col-xs-7 col-sm-7">
+                <h4>
+                <a href="{% url 'delete' contact.pk %}" class="badge badge-danger">Delete</a>
+            </h4>
+            </div>
         </div>
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    
     </div>
+
+    <br>
+
     {% endfor %}
+    
 </div>
 {% endblock %}
